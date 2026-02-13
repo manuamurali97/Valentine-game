@@ -3,32 +3,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import FloatingPhoto from "./FloatingPhoto";
 
 /* IMPORT YOUR 27 IMAGES */
-import img1 from "../assets/memories/img1.png";
-import img2 from "../assets/memories/img2.png";
-import img3 from "../assets/memories/img3.png";
-import img4 from "../assets/memories/img4.png";
-import img5 from "../assets/memories/img6.png";
+import img1 from "../assets/memories/img1.webp";
+import img2 from "../assets/memories/img2.webp";
+import img3 from "../assets/memories/img3.webp";
+import img4 from "../assets/memories/img4.webp";
+import img5 from "../assets/memories/img6.webp";
 import img6 from "../assets/memories/img5.png";
-import img7 from "../assets/memories/img7.png";
-import img8 from "../assets/memories/img8.png";
-import img9 from "../assets/memories/img10.png";
-import img10 from "../assets/memories/img9.png";
-import img11 from "../assets/memories/img11.png";
-import img12 from "../assets/memories/img12.png";
-import img13 from "../assets/memories/img8new.png";
-import img14 from "../assets/memories/img14.png";
-import img15 from "../assets/memories/img15.png";
-import img16 from "../assets/memories/img16.png";
-import img17 from "../assets/memories/img17.png";
+import img7 from "../assets/memories/img7.webp";
+import img8 from "../assets/memories/img8.webp";
+import img9 from "../assets/memories/img10.webp";
+import img10 from "../assets/memories/img9.webp";
+import img11 from "../assets/memories/img11.webp";
+import img12 from "../assets/memories/img12.webp";
+import img13 from "../assets/memories/img13.webp";
+import img14 from "../assets/memories/img14.webp";
+import img15 from "../assets/memories/img15.webp";
+import img16 from "../assets/memories/img16.webp";
+import img17 from "../assets/memories/img17.webp";
 import img18 from "../assets/memories/img18.png";
-import img19 from "../assets/memories/img19.png";
-import img20 from "../assets/memories/img20.png";
-import img21 from "../assets/memories/img21.png";
+import img19 from "../assets/memories/img19.webp";
+import img20 from "../assets/memories/img20.webp";
+import img21 from "../assets/memories/img21.webp";
 //import img22 from "../assets/memories/img22.png";
-import img23 from "../assets/memories/img23.png";
-import img24 from "../assets/memories/img24.png";
-import img25 from "../assets/memories/img25.png";
-import img26 from "../assets/memories/img26.png";
+import img23 from "../assets/memories/img23.webp";
+import img24 from "../assets/memories/img24.webp";
+import img25 from "../assets/memories/img25.webp";
+import img26 from "../assets/memories/img26.webp";
 //import img27 from "../assets/memories/img27.png";
 
 function MemoryMontage() {
@@ -61,7 +61,7 @@ function MemoryMontage() {
 
     const timer = setTimeout(() => {
       setChapterIndex(prev => prev + 1);
-    }, 10000); // 11 seconds per chapter
+    }, 9000); 
 
     return () => clearTimeout(timer);
   }, [chapterIndex]);
