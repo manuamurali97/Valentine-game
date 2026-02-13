@@ -1,0 +1,322 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #a13255, #5c0c4c, #561130, #ff7bae);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+  overflow: hidden;
+  color: #fce4ec;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating hearts background */
+.heart-bg {
+  position: absolute;
+  top: 100vh;
+  opacity: 0.12;
+  animation: floatHearts ease-in-out infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Card */
+.level {
+  width: 100%;
+  max-width: 500px;
+  height: 380px;
+  position: relative;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  padding: 40px;
+  z-index: 2;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Waiting emoji */
+.waiting-emoji {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+/* Button area centered */
+.button-area {
+  position: relative;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
+.yes-btn {
+  background: #c2185b;
+  color: white;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 15px rgba(194, 24, 91, 0.6),
+    0 0 35px rgba(194, 24, 91, 0.4);
+  animation: yesGlow 2.5s infinite;
+  overflow: visible;
+}
+
+@keyframes yesGlow {
+  0% {
+    box-shadow:
+      0 0 10px rgba(194, 24, 91, 0.5),
+      0 0 25px rgba(194, 24, 91, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(255, 105, 180, 0.9),
+      0 0 60px rgba(255, 105, 180, 0.6);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(194, 24, 91, 0.5),
+      0 0 25px rgba(194, 24, 91, 0.3);
+  }
+}
+
+.yes-btn::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 10px;
+  background: radial-gradient(circle, rgba(255,105,180,0.4), transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+  
+}
+
+.no-btn {
+  background: #333;
+  color: white;
+}
+
+.waiting-image {
+  width: 110px;
+  margin-bottom: 35px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.present-btn {
+  margin-top: 40px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  background: #ff6f91;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,111,145,0.6);
+  transition: 0.3s ease;
+}
+
+.present-btn:hover {
+  transform: scale(1.05);
+}
+
+.image-wrapper {
+  width: 130px;        /* Control size here */
+  height: auto;
+  margin: 20px auto 35px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiter-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  scale: 1.5;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 130px;
+  margin: 20px auto 35px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiter-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  scale: 1.5;
+  background: radial-gradient(circle, white 0%, rgba(255,255,255,0.4) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.roses-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.roses-image {
+  width: 160px;
+  scale: 1.5;
+  height: auto;
+  display: block;
+}
+
+/* Petal Falling Animation */
+.petal {
+  position: fixed;
+  top: -170px;
+  opacity: 0.85;
+  animation: petalFall linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+  }
+
+   10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(-30px) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+/* Memory Montage */
+
+.montage-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chapter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chapter-caption {
+  margin-top: 40px;
+  font-size: 24px;
+  color: white;
+}
+
+.photos-grid {
+  margin-top: 60px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
+  justify-content: center;   
+  gap: 30px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .photos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.memory-photo {
+  width: 180px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.final-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 38px;
+  color: white;
+  line-height: 1.4;
+}
+
