@@ -50,11 +50,12 @@ function MemoryMontage() {
 
   const [chapterIndex, setChapterIndex] = useState(0);
   const [showFinal, setShowFinal] = useState(false);
+  
 
   /* Automatic progression */
   useEffect(() => {
     if (chapterIndex >= chapters.length) {
-      setTimeout(() => setShowFinal(true), 1000);
+      setTimeout(() => setShowFinal(true), 2000);
       return;
     }
 
@@ -70,29 +71,49 @@ function MemoryMontage() {
 
       {/* FINAL MESSAGE */}
       {showFinal && (
-        <motion.div
-          className="final-message"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-        >
-          <h1 className="final-message">
-      Be my Valentine 💗 <br/> <br/>Today, tomorrow, and always...
-    </h1>
-         <motion.img
+  <motion.div
+    className="final-wrapper"
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 3,
+      ease: "easeOut"
+    }}
+  >
+    <motion.h1
+      className="final-text"
+      animate={{
+        y: [0, -6, 0],
+        opacity: [1, 0.95, 1]
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 3   // wait until entry animation finishes
+      }}
+    >
+      Be my Valentine 💗 <br /><br />
+      Today, tomorrow, and always...
+    </motion.h1>
+
+    <motion.img
       src={img26}
       alt="Final moment"
       className="final-image"
-      initial={{ opacity: 0, y: 30, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 2,
+        duration: 3,
         ease: "easeOut",
-        delay: 1
+        delay: 1.5
       }}
     />
-        </motion.div>
-      )}
+  </motion.div>
+)}
+
+
+
 
       <AnimatePresence mode="wait" >
         {!showFinal && chapterIndex < chapters.length && (
@@ -118,7 +139,8 @@ function MemoryMontage() {
                 <FloatingPhoto
                   key={index}
                   src={img}
-                  delay={index * 0.5} // Stagger photos by 1.5s
+                  delay={index * 0.5}
+                  gap={index === 0 ? 0 : 15}
                 />
               ))}
             </div>
